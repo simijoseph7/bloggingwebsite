@@ -1,24 +1,24 @@
-Harlequin-Hedgehogs Final Project – A blogging system 
+##Harlequin-Hedgehogs Final Project – A blogging system 
 
 This is the final project completed by the team Harlequin-Hedgehogs: a working blogging website that allows any user to view available articles posted by registered users, or for registered users to create and post articles, add comment, update their details (among other things). 
 
-Our blog is live! 
+##Our blog is live! 
 
 For demo purposes only, our blog can be viewed from this website: https://harlequin-hedgehogs-blog.herokuapp.com/ Please note that some functionalities (example, saving comments, and fetching the number of comments, refreshing the information) due to Heroku not supporting SQLite as a production database. 
 
-The team: 
+##The team: 
 
 We are team Harlequin Hedgehogs: 
 
-Jeanne Cang 
+1. Jeanne Cang 
 
-Simi Joseph 
+2. Simi Joseph 
 
-Tamiru Hairu (Team Leader) 
+3. Tamiru Hairu (Team Leader) 
 
-Xinhao Liu 
+4. Xinhao Liu 
 
-Features: 
+##Features: 
 
 All the compulsory features have been implemented in this project: 
 
@@ -46,7 +46,7 @@ The website must have a consistent look and feel, and must be responsive.
 
   
 
-Extra Features: 
+##Extra Features: 
 
 We have also added these extra features: 
 
@@ -80,7 +80,7 @@ When clicking on the author name (link) from the article, it will display the us
 
   
 
-Instructions and notes to marker: 
+##Instructions and notes to marker: 
 
 Instructions on what the database file (*.db file) should be named: 
 
@@ -96,11 +96,11 @@ username: user1, password: pa55word
 
 username: user2, password: pa55word 
 
-Does the marker need to do anything prior to running your webapp, other than npm install? 
+##Does the marker need to do anything prior to running your webapp, other than npm install? 
 
 Create a folder under the main project named "config". Under config folder manually copy the "dev.env". This contains the private keys config, which are sent to the Marker separately via Slack. Please let us know if not received and we can resend the file. We are unable to include this in the Git repository as it suspends our SendGrid account (used for the email notifications) when the private keys are exposed publicly. 
 
-Any other instructions / comments you wish to make to your markers. 
+##Any other instructions / comments you wish to make to your markers. 
 
 When adding text (creating articles and comments), please do not copy and paste directly from a link or website (better to enter it manually on the fields/text area or remove any formatting). This seems to cause an error with SQLite when inserting the data. 
 
