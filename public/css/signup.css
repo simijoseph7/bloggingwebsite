@@ -1,0 +1,111 @@
+
+body {font-family: Arial, Helvetica, sans-serif; }
+* {box-sizing: border-box}
+
+/* Full-width input fields */
+/* input[type=text], input[type=password], input[type=date], input [type="text"], input [type="file"], form[id="description"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+} */
+
+/* input[type=text]:focus, input[type=password], input[type=date], input [type="text"], input [type="file"] :focus {
+  background-color: #ddd;
+  outline: none;
+} */
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: rgb(179, 175, 175);
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+.uploadbtn {
+  padding: 14px 20px;
+  background-color: #2563
+}
+
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+
+
+
+/* Style for Avatar cards */
+
+/* Flex */
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; 
+}
+
+.card-avatar {
+  background-color: white;
+  padding: 14px;
+}
+
+#avatars{
+  width:200px;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.avatars > input{
+  display: none;
+}
+
+.avatars > input + img{
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.avatars > input:checked + img{
+  border: 2px solid #04AA6D;
+}
