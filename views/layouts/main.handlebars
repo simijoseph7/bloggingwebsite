@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./css/site.css">
+<link rel="stylesheet" href="./css/login.css">
+<link rel="stylesheet" href="./css/signup.css">
+
+<script src="/validator/validator.min.js" type="text/javascript"></script>
+<script src="/tinymce/tinymce.min.js" type="text/javascript"></script>
+<script src="./javascript/article-scripts.js"></script>
+<script src="./javascript/username.js"></script>
+<script src="./javascript/scripts.js"></script>
+{{!-- <script src="https://unpkg.com/validator@latest/validator.min.js"></script> --}}
+ {{!--  config scripts for tinymce --}}
+<script src="./javascript/tinymce-config.js" type="text/javascript"></script>
+
+
+
+    
+    {{#if title}}
+    <title>{{title}}</title>
+    {{else}}
+    <title>Home</title>
+    {{/if}}
+  
+</head>
+
+
+
+<body>
+    <div class="header neumorphic">
+      <h2 ><a class="tdn" href="./">Harlequin Hedgehogs Blog</a></h2>
+    </div>
+    {{!-- <div class="nav-userProfile"> --}}
+      <div class="search-box d-flex flex-aic flex-jcfe mb-10 ">
+        <form action="./searchResults" method="POST">
+          <input class="ml-auto articleTitle" type="text" id="search" name="search" placeholder="Search for articles ........ &#128269">
+        </form>
+      </div>
+      <nav class="shad neuBtn d-flex flex-aic flex-jcfe">
+        <ul>
+          <li class="ml-auto"><a href="./"><ion-icon size="large" name="home"></ion-icon></a></li>
+          <li><a href="/category?category=General">General</a></li>
+          <li><a href="/category?category=Technology">Technology</a></li>
+          <li><a href="/category?category=Business">Business</a></li>
+          <li><a href="/category?category=Travel">Travel</a></li>
+          <li><a href="/category?category=Culture">Culture</a></li>
+          <li></li>
+          {{#unless user}} 
+          <li><a href="./login">Login</a></li>
+          <li><a href="./signup">Sign Up</a></li>
+          {{/unless }}
+          
+     
+     
+      {{#if user}}
+      <li >
+      <img id="collapsible" class="collapsible"  src="/images/thumbnails/{{user.userImage}}" width="64px">
+     
+       
+      </li>
+      <ul id="profileOptions" class="flex-column flex-aisb ">
+        <li class="my-10">{{user.fname }} {{user.lname}}</li>
+        <li class="my-10"> <a href="./createArticle">Create Article</a> </li>
+        <li> <a href="./userArticles">My Articles</a> </li>
+        <li><a href="./userProfile">Edit Profile</a></li>
+        <li><a href="./logout">Log out</a></li>
+      
+      </ul>
+      {{/if }}
+      </ul>
+     
+      </nav>
+     
+      
+        
+    {{!-- </div> --}}
+      
+
+      
+
+{{{body}}}
+
+      <div class="footer d-flex flex-jcsb">
+        <ul class="lsn d-flex flex-jcsb">
+        <li class="ml-10"><a href="./">Home</a> </li>
+        <li class="ml-10"><a href="/category?category=General">General</a></li>
+        <li class="ml-10"><a href="/category?category=Technology">Technology</a></li>
+        <li class="ml-10"><a href="/category?category=Business">Business</a></li>
+        <li class="ml-10"><a href="/category?category=Travel">Travel</a></li>
+        <li class="ml-10"><a href="/category?category=Culture">Culture</a></li>
+        </ul>
+        <div class="ml-auto">
+        <p>&copy; 2021 Harlequin Hedgehogs</p>
+        <p><a href = "mailto: cs719harlequin@gmail.com">cs719harlequin@gmail.com</a></p>
+        </div>
+      </div>
+ <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</body>
+
+
+</html>
