@@ -1,0 +1,54 @@
+
+
+
+  <div class="createEditArticle" id="editArticle">
+
+    <h2>Edit Article </h2> <br>
+   
+    <form action="/updateArticle" method="post" enctype="multipart/form-data">
+    
+      <!-- article category  General, Technology, Business, Travel & Culture -->
+      <div class="d-flex flex-aic flex-jcc ">
+          <div id="category" class="shad d-flex mw-mc ">
+            <div class="d-flex flex-aic ml-5">
+              <input class="mr-10 " type="radio" checked id="{{article.description}}_category" name="category"
+                value="{{article.description}}">
+              <label for="{{article.description}}_category">{{article.description}} </label>
+          
+            </div>
+          
+          </div>
+          <div>
+            <input class="op-0"  type="text" name='articleId' value="{{article.articleId}}">
+          </div>
+      </div>
+        <!-- article detail -->
+     
+      <label id="editArticleTitleLabel" for="editArticleTitle">Article Title</label>
+      <br>
+      <input class="articleTitle"  type="text" name="articleTitle" id="editArticleTitle" value="{{article.title}}" >
+      <br><br><br>
+      <textarea cols="50" rows="5"  id="myArticleTinymce" name="articleContent" placeholder="">{{article.content}} </textarea>
+      <br>
+    
+       <div id="uploadedImage">
+         <img src="./images/articleImages/{{article.articleImage}}">
+      </div>
+       <br>
+       <br>
+       <div class="articleImageDiv"  id="editArticleImageDiv">
+         <label id="editArticleImageLabel"  class="shad neuBtn" for="editArticleImage">Change Image </label>
+         
+         <input style="opacity: 0" type="file" id="editArticleImage" name="articleImage" accept=".jpg, .jpeg, .png">  <hr>
+         
+         <div class="d-flex  flex-aic flex-jcfs ">
+          <input class="shad mr-10 submitBtn neuBtn" id="editArticleSubmit" type="submit" id="submit" value=" Save">
+          <button class="shad mw-mc ml-10 neuBtn flex-asfs" type="reset" id="editArticleCancel"><a class="tdn" href="./userArticles">
+              Cancel</a></button>
+         </div>
+       </div>
+ </form>
+  </div>
+      <br>
+
+ 

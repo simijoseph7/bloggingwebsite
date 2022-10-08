@@ -1,0 +1,101 @@
+<head>
+    <title>User Profile</title>  
+</head>
+
+
+<div class="container"></div>
+    <h1>User profile</h1>
+    <p>Update profile and account settings</p>
+
+    <form action="./updateProfile" method="POST">
+     
+    <div class="card">
+        <div>
+            <h3>User details</h3>
+            <div class="card-avatar">
+            {{#if userImage}}
+            <img src="/images/thumbnails/{{userImage}}" width="100px"> 
+            {{else}}
+            <img src="/images/thumbnails/avatar00_default.PNG" width="100px"> 
+            {{/if}}
+            <a href="./gallery"><button type="button" class="uploadbtn">Edit profile photo</button></a> 
+            </div>
+            <p>Username: {{username}}</p>
+            <label for="firstName"> First name:  
+            <input type="text" id="firstName"  name="fname" value="{{firstname}}">
+            </label>           
+            <label for="lastName"> Last name:  
+            <input type="text" id="lastName" name="lname" value="{{lastname}}">
+            </label>
+            <label for="email"> Email:  
+            <input type="text" id="email" name="email" value="{{email}}">
+            </label>
+            <label for="dob"> Date of birth:  
+            <input type="text" id="dob" name="dob" value="{{dob}}">
+            </label>
+            <label for="aboutMe"> About Me:  
+            <textarea id="aboutMe" class="myCommentTinymce" name="description"> {{description}}</textarea>
+            </label>
+        </div>
+          
+      
+
+       
+    </div>
+
+    
+    <div class="card">        
+            <div class="clearfix">
+            <a href="./"><button type="button" class="cancelbtn">Cancel</button></a>
+            <button type="submit" class="signupbtn">Save</button></a>  
+            </div>    
+    </div>
+    </form>
+
+   {{!--  reset password --}}
+{{! Display a toast message if one was provided. }}
+{{#if toastMessage}}
+<p class="tc-red">{{toastMessage}}</p>
+{{/if}}
+<form action="./resetPassword" method="post">
+    <div>
+        <h3>Reset Password</h3>
+        <p>If you reset your password you will need to login again.</p>
+        <label for="resetOldPassword"> Enter old password: <span class="tc-red ml-10" id="spanResetOldPassword">
+            </span></label>
+        <input type="password" id="resetOldPassword" name="resetOldPassword" placeholder="Enter old password"><br><br>
+        <label for="resetNewPassword"> Enter new password: </label>
+        <input type="password" id="resetNewPassword" name="resetNewPassword" placeholder="Enter new password"><br><br>
+        <label for="resetConfirmPassword"> Confirm new password: <span class="tc-red ml-10"
+                id="spanResetConfirmPassword"> </span></label>
+        <input type="password" id="resetConfirmPassword" name="resetConfirmPassword" placeholder="Confirm new password">
+        <div class="cancel-addComment shad">
+        </div>
+        <div class="card">
+            <div class="clearfix">
+                <a href="./"><button type="button" class="cancelbtn">Cancel</button></a>
+                <button type="submit" class="signupbtn">Reset Password</button></a>
+            </div>
+        </div>
+</form>
+    {{!--  reset password  --}}
+
+
+
+   {{!-- delete account --}}
+    <div>
+    
+        <h3 class="tc-red">Delete Account</h3>
+        {{#if toastMessage}}
+        <p>{{{toastMessage}}}</p>
+        {{/if}}
+        <form action="./deleteAccount" method="post">
+            <div class="d-flex  ">
+                <label for="password"> Password:
+                    <input required type="password" id="password" name="password" placeholder="Enter your password...">
+            </div>
+            <button type="submit" class="tc-red shad neuBtn mw-mc">Delete Account</button>
+        </form>
+    </div>
+   {{!-- delete account --}}
+</div>

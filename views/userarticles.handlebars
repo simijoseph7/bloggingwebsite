@@ -1,0 +1,150 @@
+<div class="row">
+  <div class="leftcolumn">
+{{#each allArticles}}
+<div class="card ">
+  <div class="articleBox_{{this.articleId}}">
+
+    <div class="articleDiv mainArticle_{{this.articleId}}" data-index='{{this.articleId}}'>
+      <img src="./images/articleImages/{{this.articleImage}}" alt="" srcset="">
+      <h2>{{this.title}}</h2>
+      <div class="d-flex flex-aic flex-jcc">
+        {{!-- -----------------------------> --}}
+        <div>
+          <h3><strong>{{this.description}}</strong>, <em class="fs-l">
+              {{this.creationDate}}</em></h3>
+          <p>{{{this.content}}}</p>
+        </div>
+
+        {{!-- edit delete for articles --}}
+        <div class="d-flex flex-aic">
+          <a class="collapsible editDeleteArticle editDeleteArticle_{{this.articleId}}" data-index={{this.articletId}}>
+            <ion-icon size="large" name="more"></ion-icon>
+          </a>
+
+          <ul class="lsn flex-asfs editDeleteOpt editDeleteArticleOptions_{{this.articleId}}">
+            <li><a href="./updateArticle?articleId={{this.articleId}}" class="tdn editArticle_{{this.articleId}}" data-content='{{this.content}}'>Edit</a> </li>
+            <li><a href="./deleteArticle?articleId={{this.articleId}}" class="tdn deleteArticle_{{this.articleId}}"  >Delete</a>
+            
+            </li>
+          </ul>
+        </div>
+
+        {{!-- --------------- --------------->--}}
+      </div>
+    </div>
+
+    {{!-- all coment DIV including editor --}}
+
+    <div class="allCommentBox_{{this.articleId}}">
+
+      <div class="commentsList_{{this.articleId}} commentsList" data-isempty="" data-index="{{this.articleId}}">
+        <h3>Comments</h3>
+        {{#if this.comments}}
+        {{#each this.comments}}
+
+        {{!-- comment div --}}
+        <div class="left-margin commentDiv_{{this.commentId}} commentBox" data-commentid={{this.commentId}}>
+          <img class="commentImage" src="./images/thumbnails/{{this.userImage}}" width="64px">
+          <div class="commentContent">
+            <p class="mb-10"> <strong> {{this.userName}} </strong> {{#if this.author}}<span class="ml-10 mr-5">|</span>
+              <span class="bg-green mr-10 ml-10 ">Author</span> {{/if }} <span class="ml-10">|</span>
+              <ion-icon name="time"></ion-icon> <span><em>{{this.creationDate}}</em> </span>
+            </p>
+            {{{this.content}}}
+
+          </div>
+          {{#if this.owner}}
+          {{!-- edit delete option --}}
+          <a class="collapsible editDelete editDelete_{{this.commentId}}" data-index={{this.commentId}}>
+            <ion-icon size="large" name="more"></ion-icon>
+          </a>
+
+          <ul class="lsn editDeleteOpt editDeleteOptions_{{this.commentId}}">
+
+            <li><a  class="tdn editComment_{{this.commentId}}" data-content='{{this.content}}'
+                data-tinybox={{../this.articleId}}>Edit</a> </li>
+
+            <li><a class="tdn" href="./deleteComment?commentId={{this.commentId}}">Delete</a></li>
+          </ul>
+
+          {{/if }}
+
+
+        </div>
+        <hr>
+        {{/each }}
+
+        {{/if }}
+
+      </div>
+
+
+      {{!-- ==========text area --}}
+      <div class="tinyBox_{{this.articleId}} tinyBoxIndex">
+
+
+        <form id="commentForm_{{this.articleId}}" action="./createComment">
+          <textarea id="myCommentTinymce_{{this.articleId}}" class="myCommentTinymce"
+            name="content_{{this.articleId}}"> </textarea>
+
+          <br>
+          <div class="cancel-addComment">
+            <button type="submit" data-index={{this.articleId}} data-username={{this.userName}}
+              data-commentid={{this.commentId}} data-userimage={{this.userImage}}
+              class=" neuBtn submitBtn postComment postComment_{{this.articleId}}">Add Comment
+            </button>
+
+            <button type="reset" data-index={{this.articleId}}
+              class="neuBtn cancelComment_{{this.articleId}}">Cancel</button>
+
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {{!-- comment Count --}}
+    <div class="commentCountBox">
+      <ion-icon data-index={{this.articleId}} role="button" class="comment addComment addComment_{{this.articleId}}"
+        name="text"></ion-icon>
+      <span class="commentCount commentCount_{{this.articleId}}">{{this.commentsCount}}</span>
+    </div>
+    <hr>
+
+  </div>
+</div>
+
+{{/each }}
+  </div>
+</div>
+{{!-- Confirmation modal  Modal  --}}
+{{!-- <div id="articleDeleteModal" class="modal mw-mc ">
+ 
+  <form class="modal-content" action="/deleteArticle">
+    <div class="container d-flex flex-column flex-aic">
+      <span onclick="document.getElementById('articleDeleteModal').style.display='none'" class="close hover-red flex-asfe fs-2"
+        title="Close Modal">×</span>
+      <h1>Delete Article</h1>
+      <p>Are you sure you want to delete thei Article?</p>
+
+      <div class="d-flex flex-jcsb">
+        <button type="button" onclick="document.getElementById('articleDeleteModal').style.display='none'"
+          class="hover-gray-red ">Cancel</button>
+        <button type="button" onclick="document.getElementById('articleDeleteModal').style.display='none'"
+          class="hover-red-gray">Delete</button>
+      </div>
+    </div>
+  </form>
+</div> --}}
+
+
+
+
+
+
+
+
+
+
+
+
+

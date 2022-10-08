@@ -1,0 +1,43 @@
+{{! Display a toast message if one was provided. }}
+   <div class="row d-flex flex-jcc flex-column flex-aic mw-65">
+      {{#if toastMessage}}
+      <p class="tc-red">{{toastMessage}}</p>
+      {{/if}}
+      <form action="./createAccount" method="post">
+        <div class="container">
+          <h1>Sign Up</h1>
+          <p>Please fill in this form to create an account.</p>
+          <hr>
+          <label for="signupUsername mr-10"><b>Username</b> <span class="tc-red ml-10" id="alertSpan"> </span></label>
+          <input class="inputField" id="signupUsername" type="text" placeholder="User Name" name="userName" required><br>
+          <br>
+      
+          <label for="signupPassword"><b>Password</b></label>
+          <input class="inputField" id="signupPassword" type="password" placeholder="Enter Password" name="password"
+            required><br><br>
+          <label class="mr-10" for="confirmPassword"><b>Confirm Password</b> <span class="tc-red ml-10"
+              id="alertSpanPassword"> </span></label>
+          <input class="inputField" id='confirmPassword' type="password" placeholder="Confirm Password" name="passwordRepeat"
+            required><br>
+          <br>
+          <label for="fname"><b>First name:</b></label>
+          <input class="inputField" required type="text" id="fname" placeholder="First Name" name="fname"><br><br>
+          <label for="lname"><b>Last name:</b></label>
+          <input class="inputField" required type="text" id="lname" placeholder="Last Name" name="lname"><br><br>
+      
+          <label for="dob"><b>Date of birth:</b></label>
+          <input class="inputField" type="date" id="dob" name="dob"><br>
+          <label for="userEmail" class="mr-10"><b>Email</b> <span id="userEmailLabel" class="tc-red ml-10"></span></label>
+          <input id="userEmail" class="inputField" type="text" placeholder="Enter Email" name="email" required><br><br>
+          <label for="aboutMe"><b>About You </b></label>
+          <hr>
+          <textarea class="inputField" name="description" id="myArticleTinymce" placeholder="About you ..."></textarea>
+          <div class="cancel-addComment shad mt-10">
+            <button id="signupSubmit" type="submit" class="neuBtn submitBtn">Sign Up</button>
+            <button type="reset" class="neuBtn">Cancel</button>
+          </div>
+        </div>
+      
+      
+      </form>
+   </div>

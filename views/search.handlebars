@@ -1,0 +1,214 @@
+<div class="row d-flex mw-100">
+
+    
+      <div class="leftcolumn">
+      <div>
+
+<h3> {{#if allArticles}} Articles matching your search.. {{else}} Sorry, there are no articles matching 
+  <em>'{{search}}'</em>, please try again! {{/if}}</h3>
+
+        </div>
+        {{#if user}} 
+          {{#each allArticles}}
+          <div class="card .userTrue neuCard">
+          
+            <div class="articleBox_{{this.articleId}}">
+           
+              <div class="mainArticle_{{this.articleId}}">
+                <img src="./images/articleImages/{{this.articleImage}}" alt="" srcset="">
+                <h2>{{this.title}}</h2>
+                <h3><strong>{{this.description}}</strong></h3>
+                <p>{{{this.content}}}</p>
+                <div class="d-flex  flex-aic">
+                  <img src="./images/thumbnails/{{this.userImage}}" class="border-radius-50" width="64px">
+                  <span class="ml-10"><a class="hover-green tdn" href="./aboutme?userId={{this.userId}}">{{this.fname}} {{this.lname}},</a> <em class="fs-l">
+                      {{this.creationDate}}</em></span>
+                </div>
+              </div>
+              <div class="allCommentBox_{{this.articleId}}">
+          
+                <div class="commentsList_{{this.articleId}} commentsList" data-isempty="" data-index="{{this.articleId}}">
+                  <h3>Comments</h3>
+                  {{#if this.comments}}
+                  {{#each this.comments}}
+                  <div class="left-margin commentDiv_{{this.commentId}} commentBox" data-commentid={{this.commentId}}>
+                    <img class="commentImage" src="./images/thumbnails/{{this.userImage}}" width="64px">
+                    <div class="commentContent">
+                      <p class="mb-10"> <strong> {{this.userName}} </strong>  {{#if this.author}}<span class="ml-10 mr-5">|</span> <span class="bg-green mr-10 ml-10 ">Author</span> {{/if }} <span class="ml-10">|</span> <ion-icon name="time"></ion-icon> <span><em>{{this.creationDate}}</em> </span>
+                      </p>
+                      {{{this.content}}}
+                     
+                     </div>
+                      {{#if this.owner}} 
+                        {{!-- edit delete option --}}
+                       <a class="collapsible editDelete editDelete_{{this.commentId}}" data-index={{this.commentId}}><ion-icon size="large" name="more"></ion-icon></a>
+                     
+                      <ul class="lsn editDeleteOpt editDeleteOptions_{{this.commentId}}">
+                      
+                        <li><a class="tdn editComment_{{this.commentId}}" data-content='{{this.content}}'
+                            data-tinybox={{../this.articleId}} data-index={{this.commentId}}>Edit</a> </li>
+                      
+                        <li><a class="tdn" href="./deleteComment?commentId={{this.commentId}}">Delete</a></li>
+                      </ul>
+                      
+                      {{/if }}
+                      
+          
+                    </div>
+                  <hr>
+                  {{/each }}
+          
+                  {{/if }}
+          
+                </div>
+          
+          
+                {{!-- ==========text area --}}
+                <div class="tinyBox_{{this.articleId}} tinyBoxIndex">
+          
+          
+                  <form id="commentForm_{{this.articleId}}" action="./createComment">
+                    <textarea id="myCommentTinymce_{{this.articleId}}" class="myCommentTinymce"
+                      name="content_{{this.articleId}}"> </textarea>
+          
+                    <br>
+                    <div class="cancel-addComment">
+                      <button type="submit" data-index={{this.articleId}} data-username='{{this.userName}}' 
+                          data-userimage='{{this.userImage}}'
+                        class=" neuBtn submitBtn postComment postComment_{{this.articleId}}">Add Comment
+                      </button>
+          
+                      <button type="reset" data-index={{this.articleId}}
+                        class="neuBtn cancelComment_{{this.articleId}}">Cancel</button>
+          
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+               {{!-- comment Count  --}}
+              <div class="commentCountBox">
+                <ion-icon data-index={{this.articleId}} role="button" class="comment addComment addComment_{{this.articleId}}"
+                  name="text"></ion-icon>
+                <span class="commentCount commentCount_{{this.articleId}}">{{this.commentsCount}}</span>
+              </div>
+              <hr>
+          
+            </div>
+          </div>
+          {{/each }}
+        {{else }}
+          {{#each allArticles}}
+          <div class="card neuCard">
+          
+            <div class="articleBox_{{this.articleId}}">
+             {{!--  article  --}}
+              <div class="mainArticle_{{this.articleId}}">
+                <img src="./images/articleImages/{{this.articleImage}}" alt="" srcset="">
+                <h2>{{this.title}}</h2>
+                <h3><strong>{{this.description}}</strong></h3>
+                <p>{{{this.content}}}</p>
+                <div class="d-flex  flex-aic">
+                  <img src="./images/thumbnails/{{this.userImage}}" class="border-radius-50" width="64px">
+                  <span class="ml-10"><a class="hover-green tdn" href="./aboutme?userId={{this.userId}}">{{this.fname}} {{this.lname}},</a> <em class="fs-l">
+                      {{this.creationDate}}</em></span>
+                </div>
+              </div>
+             
+             {{!-- comment Counter --}}
+
+              <div class="commentCountBox">
+                <a class="tdn" href="./login"><ion-icon data-index={{this.articleId}} role="button" class="comment addComment addComment_{{this.articleId}}"
+                  name="text"></ion-icon></a>
+               <a class="tdn"><span class="commentCount commentCount_{{this.articleId}}">{{this.commentsCount}}</span></a>
+              </div>
+             
+              <hr>
+          
+            </div>
+          </div>
+          {{/each }}
+        {{/if }}
+      </div>
+      <div class="rightcolumn ">
+        {{#if aboutme}}
+        <div class="mw-70 d-flex flex-column flex-jcc flex-aic ">
+          <h2 class="flex-asfs mb-0">About Me</h2>
+          <p> {{aboutme.fname}} {{aboutme.lname}}</p>
+          <img src="./images/avatars/{{aboutme.userImage}}" width="80%">
+          <p>{{{aboutme.description}}}</p>
+        </div>
+        {{/if }}
+        
+        <div class="card mt-0">
+          {{#if recentPost}}
+          <div class="neuCard mb-10">
+            <h3 class="mb-5 mt-0 tc-blue">Recent Post</h3>
+            <div class="popular ">
+              <a class="tdn tc-black" href="/category?category={{recentPost.description}}">
+                <h4 class="mt-0 hover-green">{{{recentPost.title}}}</h4>
+              </a>
+              <p>{{{recentPost.fname}}} {{{recentPost.lname}}}</p>
+              <h3>{{{recentPost.description}}} , <em class="fs-l">
+                  {{{recentPost.creationDate}}}</em></h3>
+              <p>{{{recentPost.content}}} ...</p>
+            
+            </div>
+          </div>
+          {{/if }}
+      
+         <div class="neuCard">
+          <form action="/createSubscription" method="post">
+            <div class="container">
+              <h2>Subscribe to our Newsletter</h2>
+              <p>to get Notified for new Articles</p>
+            </div>
+            {{#if toastMessage}}
+            <p class="tc-red">{{toastMessage}}</p>
+            {{/if}}
+            <div class="container">
+              <input class="articleTitle" type="text" placeholder="Full Name" name="fullName" required>
+              <span class="tc-red" id="subscriberEmailLabel"></span>
+              <input id="subscriberEmail" class="articleTitle" type="text" placeholder="Email address" name="email" required>
+              <label class="d-flex flex-jcc flex-wrap">
+                {{!-- <input type="checkbox" checked="checked" name="subscribe"> --}}
+          
+                <div>
+                  <input id='general' type='checkbox' name='category' value="General">
+                  <label for="general">General</label>
+                </div>
+                <div>
+                  <input id='technology' type='checkbox' name='category' value="Technology">
+                  <label for="technology">Technology</label> <br>
+                </div>
+                <div>
+                  <input id="business" type='checkbox' name='category' value="Business">
+                  <label for="business">Business</label>
+                </div>
+                <div>
+                  <input id='travel' type='checkbox' name='category' value="Travel">
+                  <label for="travel">Travel</label>
+                </div>
+                <div>
+                  <input id='culture' type='checkbox' name='category' value="Culture">
+                  <label for="culture">Culture</label>
+                </div>
+          
+              </label>
+          
+            </div>
+          
+            <div class="container">
+              <input id="subscribeSubmit" role="button" class="shad neuBtn" type="submit" value="Subscribe">
+            </div>
+          </form>
+         </div>
+        </div>
+      
+      </div>
+    </div>
+
+
+        
+     
+        

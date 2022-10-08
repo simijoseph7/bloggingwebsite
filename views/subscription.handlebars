@@ -1,0 +1,23 @@
+{{! Display a toast message if one was provided. }}
+    {{#if toastMessage}}
+    <p>{{toastMessage}}</p>
+    {{/if}}
+
+<form action="/subscription" method="post">
+  <div class="container">
+    <h2>Subscribe to our Newsletter</h2>
+    <p>to get Notified for new Articles</p>
+  </div>
+
+  <div class="container" style="background-color:white">
+    <input type="text" placeholder="Name" name="name" required>
+    <input type="text" placeholder="Email address" name="mail" required>
+    <label>
+      <input type="checkbox" checked="checked" name="subscribe"> Daily Newsletter
+    </label>
+  </div>
+
+  <div class="container">
+    <input type="submit" value="Subscribe">
+  </div>
+</form>

@@ -1,0 +1,57 @@
+<head>
+    <title>Avatar</title>  
+</head>
+
+
+<div class="container">
+    <h1>Select an Avatar</h1>
+    <p>Select from available Avatars or upload your own!</em></p>
+
+ 
+    <div class="card">
+        <div class="card-body">
+           <form action="./uploadAvatar" method="POST" enctype="multipart/form-data">    
+            <div class="form-group">
+                <label for="inpFile">Upload a new avatar:</label>
+                <input id="inpFile" type="file" name="imageFile" accept=".png,.jpg,.jpeg">
+            </div>
+            <button type="submit" class="uploadbtn">Upload</button>
+            <p><em>Accepted file types: .png, .jpg, .jpeg </em></p>
+            </form>
+        </div>
+    </div>
+    
+
+    <form action="./updateAvatar" method="POST">
+    <div class="card-avatar">
+    {{#if images}}
+    <div class="flex">
+        {{#each images}}
+        <div>
+            <label class="avatars">
+                <input type="radio" name="avatar" value="{{this}}" required>
+                <img src="./images/thumbnails/{{this}}">
+            </label>
+        </div>
+        {{/each}}
+    </div>
+    <p><em>People vector created by freepik <a href='https://www.freepik.com/vectors/people'>www.freepik.com</a></em></p>
+    {{else}}
+    <p>No images uploaded yet, please add some!</p>
+    {{/if}}
+    </div>
+
+    
+
+    <div class="card">        
+            <div class="clearfix">
+            <a href="./userProfile"><button type="button" class="cancelbtn">Cancel</button></a>
+            <button type="submit" class="signupbtn">Save</button></a>  
+            </div>    
+    </div>
+
+    </form>
+
+
+</div>
+

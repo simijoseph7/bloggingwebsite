@@ -1,0 +1,62 @@
+
+
+
+  <div class="createArticle"  id="createArticle">
+
+    <h2>Create Your Article </h2> <br>
+   
+    <form action="/createArticle" method="post" enctype="multipart/form-data">
+      <!-- article category  General, Technology, Business, Travel & Culture -->
+        <div id="category" class="shad">
+          <div>
+            <input type="radio" checked id="generalCategory" name="category" value="General">
+            <label for="generalCategory">General </label>
+          </div>
+          <span>|</span>
+          <div>
+            <input type="radio" id="technologyCategory" name="category" value="Technology">
+            <label for="technologyCategory">Technology</label>
+          </div>
+          <span>|</span>
+          <div>
+            <input type="radio" id="businessCategory" name="category" value="Business">
+            <label for="businessCategory">Business</label>
+          </div>
+          <span>|</span>
+          <div>
+            <input type="radio" id="travelCategory" name="category" value="Travel">
+            <label for="travelCategory"> Travel</label>
+          </div>
+          <span>|</span>
+          <div>
+            <input type="radio" id="cultureCategory" name="category" value="Culture">
+            <label for="cultureCategory"> Culture</label>
+          </div>
+
+        </div>
+        <!-- article detail -->
+      <button type="button" id="btnAddTitle" class="add-btn neuBtn">&plus;</button>
+      <label id="articleTitleLabel" for="articleTitle">Article Title</label>
+      <input class="articleTitle"   type="text" name="articleTitle" id="articleTitle" value="" tabindex="1">
+      <br>
+      <button type="button" id="btnAddContent" class="add-btn neuBtn">&plus;</button>
+      <textarea cols="50" rows="5"  id="myArticleTinymce" name="articleContent" placeholder=" what is in your thought .."> </textarea>
+      <br>
+      <button type="button" id="btnAddImage" class="add-btn neuBtn">&plus;</button>
+      <br>
+       <div id="uploadedImage" class="mw-50">
+      </div>
+       <br>
+       <div class="articleImageDiv" id="articleImageDiv">
+         <label id="articleImageLabel"  class="shad neuBtn" for="articleImage">Add Image </label>
+         
+         <input type="file" id="articleImage" name="articleImage" accept=".jpg, .jpeg, .png"> <br>
+         
+         <input class="shad submitBtn neuBtn" id="articleSubmit" type="submit" id="submit" value=" Publish">
+       </div>
+      </div>
+      <br>
+      
+ </form>
+
+ 

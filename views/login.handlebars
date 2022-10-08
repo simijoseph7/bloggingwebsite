@@ -1,0 +1,27 @@
+
+<div class="row d-flex flex-column flex-jcc flex-aic mw-65">
+   <h2>Login</h2>
+    <form action="/login" method="post">
+    {{#if toastMessage}}
+    <p>{{{toastMessage}}}</p>
+    {{/if}}
+        <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="userName" required>
+    
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+    
+    
+            <button type="submit">Login</button>
+    
+        </div>
+    
+        <div> Don't have an account? <a href="/signup">Sign Up</a></div>
+    
+    </form>
+
+</div>
+
+
+
