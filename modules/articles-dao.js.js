@@ -25,6 +25,7 @@ from articles a
 join users u on a.userId = u.userId
 join categories c on a.categoryId = c.categoryId
 order by a.creationDate DESC
+
 `);
   
   return result;
@@ -42,6 +43,7 @@ from articles a
 join users u on a.userId = u.userId
 join categories c on a.categoryId = c.categoryId
 order by a.creationDate DESC
+
 `);
 
   return result;
@@ -66,6 +68,7 @@ from articles
 join categories on categories.categoryId=articles.categoryId
 and articles.categoryId = ${categoryId}
 order by articles.creationDate DESC; 
+
 `);
 
   return result;
@@ -82,6 +85,7 @@ from users u
 join articles a on a.userId=u.userId and a.userId=${userId}
 join categories c on a.categoryId = c.categoryId
 order by a.creationDate DESC;
+
 `);
 return result;
 }
