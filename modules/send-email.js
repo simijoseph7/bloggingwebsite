@@ -17,7 +17,7 @@ function sendWelcomeMessageToSubscriber(email, name) {
     template_id: process.env.SUBSCRIBER_TEMPLATE_ID,
     //  parametrs passed to Send Grid template handlebars
     dynamic_template_data: {
-      name: `${name.toUpperCase()}`,
+      name: `<strong>${name.toUpperCase()}</strong>`,
       subject_name: name,
       BASE_URL: `${process.env.BASE_URL}:${process.env.PORT}/`,
       subscriberId:subscriberId
@@ -37,7 +37,7 @@ function sendWelcomeMessageToNewUser(email, name) {
     from: process.env.SENDER_EMAIL,
     template_id: process.env.NEW_USER_TEMPLATE_ID,
     dynamic_template_data: {
-      name: `${name.toUpperCase()}`,
+      name: `<strong>${name.toUpperCase()}</strong>`,
       subject_name: name,
       BASE_URL: `${process.env.BASE_URL}:${process.env.PORT}/`,
     }
@@ -62,7 +62,7 @@ allSubscriber.forEach(subscriber=>{
      template_id: process.env.NEW_ARTICLE_TEMPLATE,
      //  parametrs passed to Send Grid template handlebars
      dynamic_template_data: {
-       name: `${name.toUpperCase()}`,
+       name: `<strong>${name.toUpperCase()}</strong>`,
        subject_name: name,
        BASE_URL: `${process.env.BASE_URL}:${process.env.PORT}/`,
        subscriberId: subscriberId,
